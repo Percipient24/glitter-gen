@@ -56,23 +56,9 @@ export class GlitterComponent implements AfterViewInit, OnInit, OnChanges {
       this.ctx.drawImage(this.bg, 0, 0);
 
       // draw different blending modes
-      switch(this.blendMode) {
-        case 'multiply':
-          this.ctx.globalCompositeOperation = 'multiply';
-          this.ctx.fillStyle = `#${this.color}`;
-          this.ctx.fillRect(0, 0, this.width, this.height);
-          break;
-        case 'color-burn':
-          this.ctx.globalCompositeOperation = 'color-burn';
-          this.ctx.fillStyle = `#${this.color}`;
-          this.ctx.fillRect(0, 0, this.width, this.height);
-          break;
-        default:
-          this.ctx.globalCompositeOperation = 'multiply';
-          this.ctx.fillStyle = `#${this.color}`;
-          this.ctx.fillRect(0, 0, this.width, this.height);
-          break;
-      }
+      this.ctx.globalCompositeOperation = this.blendMode;
+      this.ctx.fillStyle = `#${this.color}`;
+      this.ctx.fillRect(0, 0, this.width, this.height);
 
       if (this.hasSparkles) {
         this.ctx.globalCompositeOperation = 'source-over';
