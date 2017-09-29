@@ -1,0 +1,66 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    background-color: grey;
+}
+
+.box {
+    height: 100px;
+    background-color: white;
+    position: relative;
+    z-index: 10;
+}
+.swatch {
+    transform: translate(0, -100%);
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+    z-index: 5;
+    padding: 50px 0.3% 0.3%;
+}
+.swatch.show {
+    transform: translate(0, 0);
+}
+.swatch:after {
+    content: "";
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+}
+.sample {
+    width: 16%;
+    float: left;
+    position: relative;
+    height: 0;
+    padding-bottom: 10%;
+    margin: 0.285%;
+}
+.sample canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+.final {
+    transform: translate(0, -100%);
+    transition: transform 0.3s ease-in-out;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+}
+.final.show {
+    transform: translate(0, 0);
+}
+.download {
+    background-color: white;
+    position: absolute;
+    bottom: 10vh;
+}
